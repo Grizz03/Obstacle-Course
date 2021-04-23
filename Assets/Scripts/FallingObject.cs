@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class FallingObject : MonoBehaviour
 {
+    MeshRenderer renderer;
+    Rigidbody rigidBody;
     [SerializeField] float timeToWait = 3;
     // Start is called before the first frame update
     void Start()
     {
+        renderer = GetComponent<MeshRenderer>();
+        rigidBody = GetComponent<Rigidbody>();
 
+        rigidBody.useGravity = false;
+        renderer.enabled = false;
     }
 
     // Update is called once per frame
@@ -16,7 +22,8 @@ public class FallingObject : MonoBehaviour
     {
         if (Time.time >= timeToWait)
         {
-            GetComponent<Rigidbody>().useGravity = true;
+            rigidBody.useGravity = true;
+            renderer.enabled = true;
         }
     }
 }
