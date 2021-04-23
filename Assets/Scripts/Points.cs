@@ -4,22 +4,11 @@ using UnityEngine;
 
 public class Points : MonoBehaviour
 {
-    float hits = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    int hits = 0;
 
     private void OnCollisionEnter(Collision other)
     {
-        ++hits;
-        Debug.Log($"You hit [{hits}] objects!");
+        hits++; // Increment hits everytime Player hits object
+        Debug.Log($"You hit objects this many times: {hits}");
     }
 }
