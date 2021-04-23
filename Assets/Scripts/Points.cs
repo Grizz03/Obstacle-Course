@@ -8,7 +8,10 @@ public class Points : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        hits++; // Increment hits everytime Player hits object
-        Debug.Log($"You hit objects this many times: {hits}");
+        if (other.gameObject.tag != "Hit")
+        {
+            hits++; // Increment hits everytime Player hits object
+            Debug.Log($"You hit objects this many times: {hits}");
+        }
     }
 }
