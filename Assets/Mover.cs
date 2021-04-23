@@ -14,11 +14,7 @@ public class Mover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Time.deltaTime very important so game is fps dependent
-        float xValue = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
-        float zValue = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
-
-        transform.Translate(xValue, 0, zValue);
+        PlayerMovement();
     }
 
 
@@ -27,6 +23,15 @@ public class Mover : MonoBehaviour
         Debug.Log("Welcome to the game!");
         Debug.Log("Move your player with WASD or arrow keys");
         Debug.Log("Don't hit the walls or anything else!");
+    }
+
+    void PlayerMovement()
+    {
+        //Time.deltaTime very important so game is fps dependent
+        float xValue = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
+        float zValue = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
+
+        transform.Translate(xValue, 0, zValue);
     }
 
 }
